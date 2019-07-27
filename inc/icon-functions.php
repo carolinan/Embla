@@ -17,9 +17,12 @@ if ( ! function_exists( 'embla_include_svg_icons' ) ) {
 		// Define SVG sprite file.
 		$svg_icons = get_parent_theme_file_path( '/images/svg-icons.svg' );
 
-		// If it exists, include it.
-		if ( file_exists( $svg_icons ) ) {
-			require_once( $svg_icons );
+		// If it exists and if we are in the customizer or if the icons are active, include it.
+		if ( file_exists( $svg_icons ) && is_customize_preview() ||
+			file_exists( $svg_icons ) && get_theme_mod( 'embla_show_header_icon' ) ||
+			file_exists( $svg_icons ) && get_theme_mod( 'embla_show_footer_icon' )
+		) {
+			require_once $svg_icons;
 		}
 	}
 }
@@ -161,7 +164,6 @@ function embla_social_links_icons() {
 		'facebook.com'    => 'facebook',
 		'flickr.com'      => 'flickr',
 		'foursquare.com'  => 'foursquare',
-		'plus.google.com' => 'google-plus',
 		'github.com'      => 'github',
 		'instagram.com'   => 'instagram',
 		'linkedin.com'    => 'linkedin',

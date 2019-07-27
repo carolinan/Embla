@@ -37,7 +37,7 @@ if ( ! function_exists( 'embla_font_customize_register' ) ) {
 					'section' => 'embla_font_options',
 					'type'    => 'select',
 					'choices' => array(
-						'Noto Serif'        => __( 'Noto Serif (Default)', 'embla' ),
+						'Noto Serif'         => __( 'Noto Serif (Default)', 'embla' ),
 						'Alegreya'           => 'Alegreya',
 						'Alegreya Sans SC'   => 'Alegreya Sans SC',
 						'Arimo'              => 'Arimo',

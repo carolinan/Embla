@@ -5,10 +5,10 @@
  * @package Embla
  */
 
-/**
- * Enqueue the customizer stylesheet for our radio buttons.
- */
 if ( ! function_exists( 'embla_customizer_icon_stylesheet' ) ) {
+	/**
+	 * Enqueue the customizer stylesheet for our radio buttons.
+	 */
 	function embla_customizer_icon_stylesheet() {
 		wp_enqueue_style( 'embla-customizer-css', get_template_directory_uri() . '/css/customizer.css' );
 	}
@@ -46,13 +46,13 @@ if ( ! function_exists( 'embla_customize_register_icon' ) ) {
 					<span class="description customize-control-description"><?php echo esc_html( $this->description ); ?></span>
 					<?php
 					foreach ( $embla_icon_list as &$value ) {
-					?>
+						?>
 						<label>
 						<?php echo '<span class="screen-reader-text">' . esc_html_x( 'Icon name: ', 'There is a space after the colon', 'embla' ) . esc_html( $value ) . '</span>'; ?>
 						<?php echo embla_get_svg( array( 'icon' => $value ) ); ?>
 						<input type="radio" value="<?php echo esc_attr( $value ); ?>" name="<?php echo esc_attr( $this->id ); ?>" <?php $this->link(); checked( $this->value(), $value ); ?> />
 						</label>
-					<?php
+						<?php
 					}
 					?>
 					</fieldset>
@@ -65,7 +65,7 @@ if ( ! function_exists( 'embla_customize_register_icon' ) ) {
 			'embla_header_icon',
 			array(
 				'sanitize_callback' => 'embla_validate_icons',
-				'default' => 'wordpress',
+				'default'           => 'wordpress',
 			)
 		);
 

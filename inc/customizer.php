@@ -11,10 +11,10 @@
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
 function embla_customize_register( $wp_customize ) {
-	$wp_customize->get_setting( 'blogname' )->transport          = 'postMessage';
-	$wp_customize->get_setting( 'blogdescription' )->transport   = 'postMessage';
-	$wp_customize->get_setting( 'background_color' )->transport  = 'postMessage';
-	$wp_customize->get_setting( 'header_textcolor' )->transport  = 'postMessage';
+	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
+	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
+	$wp_customize->get_setting( 'background_color' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
 	$wp_customize->add_panel(
 		'embla_options_panel',
@@ -23,13 +23,13 @@ function embla_customize_register( $wp_customize ) {
 			'priority' => 90,
 		)
 	);
-	
+
 	$wp_customize->add_section(
 		'embla_options',
 		array(
 			'title'    => __( 'General Options', 'embla' ),
 			'priority' => 90,
-			'panel' => 'embla_options_panel',
+			'panel'    => 'embla_options_panel',
 		)
 	);
 
@@ -38,7 +38,7 @@ function embla_customize_register( $wp_customize ) {
 		array(
 			'title'    => __( 'Icon Options', 'embla' ),
 			'priority' => 90,
-			'panel' => 'embla_options_panel',
+			'panel'    => 'embla_options_panel',
 		)
 	);
 
@@ -123,7 +123,7 @@ function embla_customize_register( $wp_customize ) {
 		$wp_customize->add_control(
 			'embla_section' . $i,
 			array(
-				'default'        => 0,
+				'default'         => 0,
 				'type'            => 'dropdown-pages',
 				/* translators: %d is the homepage section number */
 				'label'           => sprintf( __( 'Homepage Section %d', 'embla' ), $i ),

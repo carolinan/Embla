@@ -126,6 +126,7 @@
 
 } )();
 
+
 	/* Thanks to: Keyboard Accessible Dropdown Menus
 	Copyright 2013 Amy Hendrix (email : amy@amyhendrix.net), Graham Armfield (email : graham.armfield@coolfields.co.uk)
 	License:      MIT
@@ -141,7 +142,7 @@ jQuery(document).ready(function($){	$('.main-navigation li').hover(
 		function(){$(this).parents().toggleClass("keyboard-dropdown");}
 	);
 
-});	
+});
 
 
 /*

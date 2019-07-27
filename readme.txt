@@ -1,10 +1,9 @@
 === Embla ===
 Contributors: poena
-Tags: grid-layout, custom-menu, custom-header, custom-logo, footer-widgets, theme-options, threaded-comments, translation-ready, blog, accessibility-ready, editor-style
 Requires at least: 4.7
 Tested up to: 5.2
 Requires PHP: 5.2
-Sable tag: 1.3
+Sable tag: 1.4
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Copyright: Carolina Nymark 2017-2019.
@@ -79,6 +78,15 @@ The Embla: Recent Comments widget shows excerpts of your most recent comments.
 The Embla: Recent Posts With Featured Images widget shows your most recent posts with featured images.
 
 == Changelog ==
+
+= 1.4- July 27 2019 =
+Minor changes to the width of the column block, to work better on tablets.
+Simplified CSS to remove duplicate styles.
+Added more spacing around the Jetpack breadcrumbs.
+Increased the font size.
+Fixed a CSS problem with page titles and with css transitions for the menu.
+Made sure that the svg icons are only loaded when they are actually used.
+Removed google plus since this has been discontinued.
 
 = 1.3- June 8 2019 =
 Added support for wp_body_open.

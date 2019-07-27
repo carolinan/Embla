@@ -46,8 +46,10 @@
 		?>
 		</header><!-- .entry-header -->
 		<?php if ( function_exists( 'jetpack_breadcrumbs' ) ) { ?>
+			<div class="breadcrumb-area">
 			<span class="screen-reader-text"><?php esc_html_e( 'Breadcrumb Navigation', 'embla' ); ?></span>
-			<div class="breadcrumb-area"><?php jetpack_breadcrumbs(); ?></div><!-- .breadcrumb-area -->
+			<?php jetpack_breadcrumbs(); ?>
+			</div><!-- .breadcrumb-area -->
 		<?php } ?>
 
 		<?php embla_posted_on(); ?>

@@ -37,7 +37,7 @@ if ( ! function_exists( 'embla_setup' ) ) {
 
 		register_nav_menus(
 			array(
-				'main'   => esc_html( 'Main Menu (Header)','embla' ),
+				'main'   => esc_html( 'Main Menu (Header)', 'embla' ),
 				'social' => esc_html__( 'Social Menu (Footer)', 'embla' ),
 			)
 		);
@@ -157,7 +157,7 @@ if ( ! function_exists( 'embla_widgets_init' ) ) {
 			array(
 				'name'          => esc_html__( 'Footer Widgets', 'embla' ),
 				'id'            => 'sidebar-1',
-				'description'   => esc_html__( 'Widgets in this section will be shown in the footer. ','embla' ),
+				'description'   => esc_html__( 'Widgets in this section will be shown in the footer.', 'embla' ),
 				'before_widget' => '<section id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</section>',
 				'before_title'  => '<h2 class="widget-title">',
@@ -169,7 +169,7 @@ if ( ! function_exists( 'embla_widgets_init' ) ) {
 			array(
 				'name'          => esc_html__( 'Footer Copyright', 'embla' ),
 				'id'            => 'sidebar-2',
-				'description'   => esc_html__( 'Please place a single text widget with your copyright information here. It will then be shown in the footer.','embla' ),
+				'description'   => esc_html__( 'Please place a single text widget with your copyright information here. It will then be shown in the footer.', 'embla' ),
 				'before_widget' => '<section id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</section>',
 				'before_title'  => '<h2 class="widget-title">',
@@ -182,7 +182,7 @@ if ( ! function_exists( 'embla_widgets_init' ) ) {
 				array(
 					'name'          => esc_html__( 'Shop Widgets', 'embla' ),
 					'id'            => 'sidebar-shop',
-					'description'   => esc_html__( 'Widgets in this section will be shown below your shop.','embla' ),
+					'description'   => esc_html__( 'Widgets in this section will be shown below your shop.', 'embla' ),
 					'before_widget' => '<section id="%1$s" class="widget %2$s">',
 					'after_widget'  => '</section>',
 					'before_title'  => '<h2 class="widget-title">',
@@ -204,7 +204,7 @@ if ( ! function_exists( 'embla_fonts_url' ) ) {
 	function embla_fonts_url() {
 		$fonts_url = '';
 
-		$font_families = array();
+		$font_families   = array();
 		$font_families[] = get_theme_mod( 'embla_body_font', 'Noto Serif' );
 		$font_families[] = get_theme_mod( 'embla_title_font' );
 		$font_families[] = get_theme_mod( 'embla_description_font' );
@@ -213,8 +213,8 @@ if ( ! function_exists( 'embla_fonts_url' ) ) {
 		$font_families = array_unique( $font_families );
 
 		$query_args = array(
-			'family' => urlencode( implode( '|', $font_families ) ),
-			'subset' => urlencode( 'latin,latin-ext' ),
+			'family' => rawurlencode( implode( '|', $font_families ) ),
+			'subset' => rawurlencode( 'latin,latin-ext' ),
 		);
 
 		$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
@@ -242,10 +242,11 @@ function embla_resource_hints( $urls, $relation_type ) {
 }
 add_filter( 'wp_resource_hints', 'embla_resource_hints', 10, 2 );
 
-/**
- * Enqueue scripts and styles.
- */
+
 if ( ! function_exists( 'embla_scripts' ) ) {
+	/**
+	 * Enqueue scripts and styles.
+	 */
 	function embla_scripts() {
 		// Add custom fonts, used in the main stylesheet.
 		wp_enqueue_style( 'embla-fonts', embla_fonts_url(), array(), null );
@@ -380,8 +381,8 @@ if ( ! function_exists( 'embla_comments_pagination' ) ) {
  * Otherwise, they are displayed below the content, but above the page links ( wp_link_pages() ) if a post has multiple pages.
  */
 function embla_move_share() {
-	remove_filter( 'the_content', 'sharing_display',19 );
-	remove_filter( 'the_excerpt', 'sharing_display',19 );
+	remove_filter( 'the_content', 'sharing_display', 19 );
+	remove_filter( 'the_excerpt', 'sharing_display', 19 );
 
 	if ( class_exists( 'Jetpack_Likes' ) ) {
 		remove_filter( 'the_content', array( Jetpack_Likes::init(), 'post_likes' ), 30, 1 );
@@ -394,7 +395,7 @@ add_action( 'loop_start', 'embla_move_share' );
  */
 function embla_move_related_posts() {
 	if ( class_exists( 'Jetpack_RelatedPosts' ) ) {
-		$jprp = Jetpack_RelatedPosts::init();
+		$jprp     = Jetpack_RelatedPosts::init();
 		$callback = array( $jprp, 'filter_add_target_to_dom' );
 		remove_filter( 'the_content', $callback, 40 );
 	}
@@ -441,7 +442,7 @@ if ( ! function_exists( 'embla_footer' ) ) {
 		<div class="credits">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'embla' ) ); ?>" class="credit"><?php printf( esc_html__( 'Proudly powered by %s', 'embla' ), 'WordPress' ); ?></a>
 			&nbsp; &nbsp;
-			<a href="<?php echo esc_url( 'https://theme.tips/' ); ?>" rel="nofollow" class="theme-credit"><?php printf( esc_html__( 'Theme: %1$s by Carolina', 'embla' ), 'Embla' ); ?></a>
+			<a href="<?php echo esc_url( 'https://themesbycarolina.com' ); ?>" rel="nofollow" class="theme-credit"><?php printf( esc_html__( 'Theme: %1$s by Carolina', 'embla' ), 'Embla' ); ?></a>
 		</div>
 		<?php
 	}
@@ -482,7 +483,7 @@ if ( ! function_exists( 'embla_customize_css' ) ) {
 			echo ' }';
 		}
 
-		if ( is_child_theme() === false ) {
+		if ( is_child_theme() === false && get_theme_mod( 'embla_body_font', 'Noto Serif, serif' ) !== 'Noto Serif, serif' ) {
 			/* Fonts */
 			echo 'html, body, button, input, select, textarea { font-family:' . esc_attr( get_theme_mod( 'embla_body_font', 'Noto Serif, serif' ) ) . ';}';
 			echo '.site-title, site-title a{ font-family:' . esc_attr( get_theme_mod( 'embla_title_font', 'Noto Serif, serif' ) ) . ';}';
