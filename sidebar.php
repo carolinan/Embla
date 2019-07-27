@@ -8,10 +8,10 @@
  */
 
 if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-return;
+	return;
 }
 ?>
 
-<aside id="secondary" class="widget-area" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
+<aside id="secondary" class="widget-area" itemscope="itemscope" itemtype="https://schema.org/WPSideBar">
 	<?php dynamic_sidebar( 'sidebar-1' ); ?>
 </aside><!-- #secondary -->

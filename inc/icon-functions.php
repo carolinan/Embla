@@ -1,21 +1,26 @@
 <?php
 /**
  * SVG icons related functions and filters
+ *
  * Credits:
  * Twenty Seventeen WordPress Theme, Copyright 2016 WordPress.org
  * Twenty Seventeen is distributed under the terms of the GNU GPL
+ *
+ * @package Embla
  */
 
-/**
- * Add SVG definitions to the footer.
- */
-function embla_include_svg_icons() {
-	// Define SVG sprite file.
-	$svg_icons = get_parent_theme_file_path( '/images/svg-icons.svg' );
+if ( ! function_exists( 'embla_include_svg_icons' ) ) {
+	/**
+	 * Add SVG definitions to the footer.
+	 */
+	function embla_include_svg_icons() {
+		// Define SVG sprite file.
+		$svg_icons = get_parent_theme_file_path( '/images/svg-icons.svg' );
 
-	// If it exists, include it.
-	if ( file_exists( $svg_icons ) ) {
-		require_once( $svg_icons );
+		// If it exists, include it.
+		if ( file_exists( $svg_icons ) ) {
+			require_once( $svg_icons );
+		}
 	}
 }
 add_action( 'wp_footer', 'embla_include_svg_icons', 9999 );
@@ -45,10 +50,10 @@ function embla_get_svg( $args = array() ) {
 
 	// Set defaults.
 	$defaults = array(
-		'icon'        => '',
-		'title'       => '',
-		'desc'        => '',
-		'fallback'    => false,
+		'icon'     => '',
+		'title'    => '',
+		'desc'     => '',
+		'fallback' => false,
 	);
 
 	// Parse args.
@@ -101,7 +106,7 @@ function embla_get_svg( $args = array() ) {
 	 *
 	 * See https://core.trac.wordpress.org/ticket/38387.
 	 */
-	$svg .= ' <use href="#icon-' . esc_html( $args['icon'] ) . '" xlink:href="#icon-' . esc_html( $args['icon'] ) . '"></use> ';
+	$svg .= ' <use href="#icon-' . esc_attr( $args['icon'] ) . '" xlink:href="#icon-' . esc_attr( $args['icon'] ) . '"></use> ';
 
 	// Add some markup to use as a fallback for browsers that do not support SVGs.
 	if ( $args['fallback'] ) {
@@ -182,6 +187,11 @@ function embla_social_links_icons() {
 		'wordpress.com'   => 'wordpress',
 		'yelp.com'        => 'yelp',
 		'youtube.com'     => 'youtube',
+		'mixcloud.com'    => 'mixcloud',
+		'bandcamp.com'    => 'bandcamp',
+		'slack.com'       => 'slack',
+		'itunes.apple.com' => 'itunes-note',
+		'amazon.com'      => 'amazon',
 	);
 
 	return apply_filters( 'embla_social_links_icons', $social_links_icons );

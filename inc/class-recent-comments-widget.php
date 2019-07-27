@@ -9,7 +9,7 @@
  * Register our custom recent comment widget.
  */
 function embla_recent_comments_widget() {
-	register_widget( 'embla_Recent_Comments_Widget' );
+	register_widget( 'Embla_Recent_Comments_Widget' );
 }
 add_action( 'widgets_init', 'embla_recent_comments_widget' );
 
@@ -17,7 +17,7 @@ add_action( 'widgets_init', 'embla_recent_comments_widget' );
 /**
  * Core class used to implement a Recent Comments widget.
  */
-class embla_Recent_Comments_Widget extends WP_Widget {
+class Embla_Recent_Comments_Widget extends WP_Widget {
 
 	/**
 	 * Sets up a new Recent Comments widget instance.
@@ -28,7 +28,7 @@ class embla_Recent_Comments_Widget extends WP_Widget {
 			'description' => __( 'Your site&#8217;s most recent comments.','embla' ),
 			'customize_selective_refresh' => true,
 		);
-		parent::__construct( 'embla-recent-comments', __( 'Embla: Recent Comments','embla' ), $widget_ops );
+		parent::__construct( 'embla-recent-comments', __( 'Embla: Recent Comments', 'embla' ), $widget_ops );
 		$this->alt_option_name = 'embla_recent_comments';
 
 		if ( is_active_widget( false, false, $this->id_base ) || is_customize_preview() ) {
@@ -49,8 +49,8 @@ class embla_Recent_Comments_Widget extends WP_Widget {
 		 * @param bool   $active  Whether the widget is active. Default true.
 		 * @param string $id_base The widget ID.
 		 */
-		 // Temp hack #14876.
-		if ( ! current_theme_supports( 'widgets' )  || ! apply_filters( 'show_recent_comments_widget_style', true, $this->id_base ) ) {
+		// Temp hack #14876.
+		if ( ! current_theme_supports( 'widgets' ) || ! apply_filters( 'show_recent_comments_widget_style', true, $this->id_base ) ) {
 			return;
 		}
 		?>
@@ -72,7 +72,7 @@ class embla_Recent_Comments_Widget extends WP_Widget {
 
 		$output = '';
 
-		$title = ( ! empty( $instance['title'] ) ) ? $instance['title'] : __( 'Recent Comments','embla' );
+		$title = ( ! empty( $instance['title'] ) ) ? $instance['title'] : __( 'Recent Comments', 'embla' );
 
 		/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
 		$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
@@ -91,11 +91,16 @@ class embla_Recent_Comments_Widget extends WP_Widget {
 		 *
 		 * @param array $comment_args An array of arguments used to retrieve the recent comments.
 		 */
-		$comments = get_comments( apply_filters( 'widget_comments_args', array(
-			'number'      => $number,
-			'status'      => 'approve',
-			'post_status' => 'publish',
-		) ) );
+		$comments = get_comments(
+			apply_filters(
+				'widget_comments_args',
+				array(
+					'number'      => $number,
+					'status'      => 'approve',
+					'post_status' => 'publish',
+				)
+			)
+		);
 
 		$output .= $args['before_widget'];
 		if ( $title ) {
@@ -115,8 +120,7 @@ class embla_Recent_Comments_Widget extends WP_Widget {
 				/* translators: comments widget: 1: comment author, 2: post link */
 				$output .= sprintf( _x( '%1$s on %2$s', 'widgets', 'embla' ),
 					'<span class="embla-recent-comments-meta"><span class="comment-author-link">' . get_comment_author_link( $comment ) . '</span>',
-					'<a class="comment-post-link" href="' . esc_url( get_comment_link( $comment ) ) . '">' . get_the_title( $comment->comment_post_ID )
-					 . '</a></span>'
+					'<a class="comment-post-link" href="' . esc_url( get_comment_link( $comment ) ) . '">' . get_the_title( $comment->comment_post_ID ) . '</a></span>'
 				);
 				$output .= '</li>';
 			}
@@ -136,8 +140,8 @@ class embla_Recent_Comments_Widget extends WP_Widget {
 	 * @return array Updated settings to save.
 	 */
 	public function update( $new_instance, $old_instance ) {
-		$instance = $old_instance;
-		$instance['title'] = sanitize_text_field( $new_instance['title'] );
+		$instance           = $old_instance;
+		$instance['title']  = sanitize_text_field( $new_instance['title'] );
 		$instance['number'] = absint( $new_instance['number'] );
 		return $instance;
 	}
@@ -148,16 +152,16 @@ class embla_Recent_Comments_Widget extends WP_Widget {
 	 * @param array $instance Current settings.
 	 */
 	public function form( $instance ) {
-		$title = isset( $instance['title'] ) ? esc_attr( $instance['title'] ): '';
+		$title  = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
 		$number = isset( $instance['number'] ) ? absint( $instance['number'] ) : 5;
 		?>
-		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php esc_html_e( 'Title:', 'embla' ); ?></label>
-		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" 
-		value="<?php echo $title; ?>" /></p>
+		<p><label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'embla' ); ?></label>
+		<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" 
+		type="text" value="<?php echo esc_attr( $title ); ?>" /></p>
 
-		<p><label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php esc_html_e( 'Number of comments to show:', 'embla' ); ?></label>
-		<input class="tiny-text" id="<?php echo $this->get_field_id( 'number' ); ?>" name="<?php echo $this->get_field_name( 'number' ); ?>" type="number" 
-		step="1" min="1" value="<?php echo $number; ?>" size="3" /></p>
+		<p><label for="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>"><?php esc_html_e( 'Number of comments to show:', 'embla' ); ?></label>
+		<input class="tiny-text" id="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'number' ) ); ?>" 
+		type="number" step="1" min="1" value="<?php echo esc_attr( $number ); ?>" size="3" /></p>
 		<?php
 	}
 

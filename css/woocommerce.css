@@ -1,0 +1,102 @@
+
+/*--------------------------------------------------------------
+## WooCommerce
+--------------------------------------------------------------*/
+.woocommerce .site-main {
+    display: block;
+    margin-bottom: 2em;
+}
+
+.woocommerce .products ul,
+.woocommerce ul.products {
+    margin: 1em 0 1em;
+    padding: 2em;
+}
+
+.woocommerce .has-post-thumbnail img.wp-post-image {
+	margin: 1em 0;
+}
+
+.woocommerce nav.woocommerce-pagination a.page-number, 
+.woocommerce nav.woocommerce-pagination a.page-numbers {
+    margin: 0;
+    text-decoration: none;
+    padding: 0;
+    line-height: 1;
+    font-size: 1em;
+    font-weight: 400;
+    padding: .5em;
+    min-width: 1em;
+    display: block;
+}
+
+.woocommerce .woocommerce-breadcrumb a:hover,
+.woocommerce .woocommerce-breadcrumb a:focus {
+	color: #0073AA;
+	text-decoration: none;
+}
+
+.woocommerce span.onsale,
+.woocommerce .woocommerce-breadcrumb,
+.woocommerce .woocommerce-breadcrumb a,
+.woocommerce nav.woocommerce-pagination ul li a:focus, 
+.woocommerce nav.woocommerce-pagination ul li a:hover, 
+.woocommerce nav.woocommerce-pagination ul li span.current,
+.woocommerce #reviews #comments ol.commentlist li .meta,
+.woocommerce ul.products li.product .price,
+.woocommerce div.product p.price,
+.woocommerce div.product span.price {
+	color: #000;
+}
+
+.woocommerce #respond input#submit.alt, 
+.woocommerce a.button.alt, 
+.woocommerce button.button.alt, 
+.woocommerce input.button.alt {
+	background: #000;
+}
+
+.woocommerce #respond input#submit.alt:hover, 
+.woocommerce a.button.alt:hover, 
+.woocommerce button.button.alt:hover, 
+.woocommerce input.button.alt:hover,
+.woocommerce #respond input#submit.alt:focus, 
+.woocommerce a.button.alt:focus, 
+.woocommerce button.button.alt:focus, 
+.woocommerce input.button.alt:focus {
+	background: #0073AA;
+}
+
+.woocommerce ul.products li.product .woocommerce-loop-product__title:hover,
+.woocommerce ul.products li.product .woocommerce-loop-product__title:focus,
+.woocommerce ul.products li.product a.added_to_cart:hover,
+.woocommerce ul.products li.product a.added_to_cart:focus {
+	text-decoration: underline;
+}
+
+.woocommerce input[type="submit"]:hover {
+    box-shadow: none;
+}
+
+.woocommerce nav.woocommerce-pagination ul li,
+.woocommerce nav.woocommerce-pagination ul {
+	border: none;
+	font-size: 1.5rem;
+}
+
+.woocommerce form .form-row input#coupon_code,
+.woocommerce-cart table.cart td.actions .coupon .input-text {
+	margin: 0 10px 2px 2px;
+	padding: 6px 4px 4px 8px;
+	font-weight: 700;
+	font-size: 1em;
+	min-width: 160px;
+}
+
+.woocommerce .quantity .qty {
+	margin: 0 5px 2px 2px;
+	padding: 3px 3px 3px 3px;
+	font-weight: 700;
+	font-size: 1.2em;
+}
+

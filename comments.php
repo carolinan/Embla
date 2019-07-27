@@ -5,7 +5,7 @@
  * This is the template that displays the area of the page that contains both the current comments
  * and the comment form.
  *
- * @link https://codex.wordpress.org/Template_Hierarchy
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Embla
  */
@@ -24,14 +24,16 @@ if ( post_password_required() ) {
 	<?php
 	if ( have_comments() || comments_open() ) {
 		?>
-		<h2 class="entry-title">
 			<?php
 			$comments_number = get_comments_number();
 
 			if ( '1' === $comments_number ) {
+				echo '<h2 class="entry-title">';
 				/* translators: %s: post title */
 				printf( _x( 'One Reply to &ldquo;%s&rdquo;', 'comments title', 'embla' ), get_the_title() );
+				echo '</h2>';
 			} elseif ( '0' !== $comments_number ) {
+				echo '<h2 class="entry-title">';
 				printf(
 					/* translators: 1: number of comments, 2: post title */
 					_nx(
@@ -44,17 +46,20 @@ if ( post_password_required() ) {
 					number_format_i18n( $comments_number ),
 					get_the_title()
 				);
+				echo '</h2>';
 			}
 			?>
-		</h2>
+	
 		<?php embla_comments_pagination(); ?>
 		
 		<ol class="comment-list">
 			<?php
-			wp_list_comments( array(
-				'style' => 'ol',
-				'avatar_size' => '40',
-			) );
+			wp_list_comments(
+				array(
+					'style' => 'ol',
+					'avatar_size' => '40',
+				)
+			);
 			?>
 		</ol><!-- .comment-list -->
 

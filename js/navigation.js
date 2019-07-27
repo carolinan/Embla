@@ -129,7 +129,7 @@
 	/* Thanks to: Keyboard Accessible Dropdown Menus
 	Copyright 2013 Amy Hendrix (email : amy@amyhendrix.net), Graham Armfield (email : graham.armfield@coolfields.co.uk)
 	License:      MIT
-	Plugin URI:   http://github.com/sabreuse/accessible-menus
+	Plugin URI:   https://github.com/sabreuse/accessible-menus
 	*/
 
 jQuery(document).ready(function($){	$('.main-navigation li').hover(

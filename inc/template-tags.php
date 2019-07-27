@@ -36,6 +36,17 @@ if ( ! function_exists( 'embla_posted_on' ) ) {
 				}
 			}
 			echo '	</div><!-- .entry-meta -->';
+		} elseif ( 'jetpack-portfolio' === get_post_type() ) {
+			/**
+			 * Support for Jetpack Portfolio. This requires the Jetpack plugin to be installed.
+			 * https://en.support.wordpress.com/portfolios/
+			 */
+			global $post;
+			echo '<div class="entry-meta">' . $byline . ' ' . $published; // WPCS: XSS OK.
+			echo the_terms( $post->ID, 'jetpack-portfolio-type', '<span class="categories">' . esc_html__( 'Project Types: ','embla' ) ,' &#183; ',
+			'</span>' );
+			echo the_terms( $post->ID, 'jetpack-portfolio-tag', '<span class="tags">' . esc_html__( 'Project Tags: ','embla' ) , ' &#183; ', '</span>' );
+			echo '	</div><!-- .entry-meta -->';
 		}
 	}
 }
@@ -101,22 +112,33 @@ if ( ! function_exists( 'embla_header_nav' ) ) {
 	 * Markup for the header navigation.
 	 */
 	function embla_header_nav() {
-	?>
-	<div class="menu-wrap">
-		<nav id="site-navigation" role="navigation" aria-label="<?php esc_html_e( 'Header menu', 'embla' ); ?>" class="main-navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
-			<button id="mobile-menu-toggle" aria-controls="main-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'embla' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'main',
-					'menu_id' => 'main-menu',
-					'depth' => 3,
-					'container' => false,
-				)
-			);
-			?>
-		</nav>
-	</div>
-<?php
+		?>
+		<div class="menu-wrap">
+			<nav id="site-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Header menu', 'embla' ); ?>" class="main-navigation" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement">
+				<button id="mobile-menu-toggle" aria-controls="main-menu" aria-expanded="false">
+				<?php
+				if ( get_theme_mod( 'embla_menu_button' ) !== 2 && get_theme_mod( 'embla_menu_button' ) !== 3 ) {
+					esc_html_e( 'Menu', 'embla' );
+				} elseif ( get_theme_mod( 'embla_menu_button' ) == 2 ) {
+					echo embla_get_svg( array( 'icon' => 'bars' ) );
+					echo '<span class="screen-reader-text">' . esc_html__( 'Menu', 'embla' ) . '</span>';
+				} elseif ( get_theme_mod( 'embla_menu_button' ) == 3 ) {
+					echo embla_get_svg( array( 'icon' => 'ellipsis' ) );
+					echo '<span class="screen-reader-text">' . esc_html__( 'Menu', 'embla' ) . '</span>';
+				}
+				echo '</button>';
+
+				wp_nav_menu(
+					array(
+						'theme_location' => 'main',
+						'menu_id' => 'main-menu',
+						'depth' => 3,
+						'container' => false,
+					)
+				);
+				?>
+			</nav>
+		</div>
+		<?php
 	}
 }
