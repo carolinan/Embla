@@ -3,13 +3,17 @@ a {
 }
 
 a,
-a:visited {
+a:visited,
+.block-editor-rich-text__editable a {
 	color: #111;
 }
 
 a:hover,
 a:focus,
-a:active {
+a:active,
+.block-editor-rich-text__editable a:hover,
+.block-editor-rich-text__editable a:focus,
+.block-editor-rich-text__editable a:active {
 	color: #0073AA;
 	text-decoration: none;
 }
@@ -37,7 +41,7 @@ a img {
 .wp-block-file a.wp-block-file__button:focus,
 .wp-block-button__link:hover,
 .wp-block-button__link:focus {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 /*increase contrast*/
@@ -46,9 +50,4 @@ a img {
 .wp-block-quote cite,
 .wp-block-audio figcaption {
 	color: #333;
-}
-
-/* Matches Post title font options */
-.editor-post-title__block .editor-post-title__input {
-	font-family: 'Alegreya', 'Alegreya Sans SC', 'Arimo', 'Bree Serif', 'Cherry Swash', 'Cinzel', 'Exo 2', 'Fondamento', 'Gentium Book Basic', 'Grand Hotel', 'Hind', 'Josefin Sans', 'Karla', 'La Belle Aurore', 'Lato', 'Libre Baskerville', 'Lora', 'Lobster Two', 'Merriweather', 'Montserrat', 'Muli', 'Noticia Text', 'Noto Sans', 'Noto Serif', 'Old Standard TT', 'Open Sans', 'Oswald', 'Pacifico', 'Playfair Display', 'Quando', 'Raleway', 'Roboto Slab', 'Sorts Mill Goudy', 'Tangerine', 'Ubuntu', 'Vollkorn', Serif;
 }

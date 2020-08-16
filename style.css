@@ -4,7 +4,10 @@ Theme URI:
 Author: Carolina Nymark
 Author URI: https://themesbycarolina.com
 Description: Embla is a responsive theme with a grid layout that focuses on your latest posts. It has a footer widget area with room for all your widgets and two custom widgets for recent posts and comments. The theme also has support for full width content, a video header and logo. Embla will always be free for you to use and customize. You can ask for support or request new features in the support forum.
-Version: 1.4
+Version: 1.7
+Requires at least: 5.0
+Tested up to: 5.5
+Requires PHP: 5.6
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: embla
@@ -1965,7 +1968,7 @@ body.gutenberg {
 	margin: 0 auto;
 	text-align: center;
 }
-  
+
 .wp-block-button {
 	margin-bottom: 1em;
 }
@@ -1992,19 +1995,19 @@ body.gutenberg {
 .wp-block-text-columns.alignfull{
 	padding-left: 2em;
 }
-  
+
 ul.wp-block-gallery.alignfull {
 	padding-left: 0;
 }
-  
+
 .wp-block-button.alignfull {
 	text-align: center;
 }
-  
+
 @media screen and (max-width: 840px) {
 	.alignwide {
-	  margin-left: auto;
-	  margin-right: auto;
+		margin-left: auto;
+		margin-right: auto;
 	}
 }
 
@@ -2067,10 +2070,11 @@ pre.wp-block-verse,
 }
 
 /* Increase text color contrast */
+.contact-form label span,
 .wp-block-embed figcaption,
 .wp-block-video figcaption,
 .wp-block-latest-comments__comment-date {
-	color: #333; 
+	color: #333;
 }
 
 .wp-block-audio figcaption {
@@ -2094,6 +2098,18 @@ pre.wp-block-verse,
 		flex-basis: 100%;
 		flex-grow: 0;
 	}
+}
+
+.has-embla-blue-background-color {
+	background: #0073AA;
+}
+
+.has-embla-blue-color {
+	color: #0073AA;
+}
+
+.wp-block-button__link.has-background.has-embla-blue-background-color {
+	background: #0073AA;
 }
 
 /*--------------------------------------------------------------

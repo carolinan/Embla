@@ -24,7 +24,7 @@ class Embla_Recent_Comments_Widget extends WP_Widget {
 	 */
 	public function __construct() {
 		$widget_ops = array(
-			'classname' => 'embla-recent-comments',
+			'classname'   => 'embla-recent-comments',
 			'description' => __( 'Your site&#8217;s most recent comments.','embla' ),
 			'customize_selective_refresh' => true,
 		);
@@ -115,8 +115,10 @@ class Embla_Recent_Comments_Widget extends WP_Widget {
 
 			foreach ( (array) $comments as $comment ) {
 				$output .= '<li class="recentcomments">';
-				$output .= embla_get_svg( array( 'icon' => 'quote-right' ) );
-				$output .= '<span class="comment-content">' . get_comment_excerpt( $comment ) . '</span>';
+				if ( ! post_password_required( $comment->comment_post_ID ) ) {
+					$output .= embla_get_svg( array( 'icon' => 'quote-right' ) );
+					$output .= '<span class="comment-content">' . get_comment_excerpt( $comment->comment_ID ) . '</span>';
+				}
 				/* translators: comments widget: 1: comment author, 2: post link */
 				$output .= sprintf( _x( '%1$s on %2$s', 'widgets', 'embla' ),
 					'<span class="embla-recent-comments-meta"><span class="comment-author-link">' . get_comment_author_link( $comment ) . '</span>',

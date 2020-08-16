@@ -32,7 +32,8 @@
 			the_post_thumbnail( 'thumbnail' );
 		}
 	} elseif ( is_single() || is_page() ) {
-		if ( has_post_thumbnail() ) {
+
+		if ( has_post_thumbnail() && ! embla_get_meta( 'embla_featured_image_header' ) ) {
 			the_post_thumbnail();
 		}
 		?>

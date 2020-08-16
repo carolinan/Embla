@@ -1,12 +1,11 @@
 === Embla ===
 Contributors: poena
-Requires at least: 4.7
-Tested up to: 5.2
-Requires PHP: 5.2
-Sable tag: 1.4
+Requires at least: 5.0
+Tested up to: 5.5
+Requires PHP: 5.6
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
-Copyright: Carolina Nymark 2017-2019.
+Copyright: Carolina Nymark 2017-2020.
 
 In norse mythology Embla was the first woman, created by the gods.
 
@@ -19,7 +18,7 @@ You can ask for support or request new features in the support forum.
 
 
 == License ==
-Embla WordPress Theme, Copyright Carolina Nymark 2017-2019.
+Embla WordPress Theme, Copyright Carolina Nymark 2017-2020.
 
 Embla is distributed under the terms of the GNU GPL
 
@@ -79,14 +78,28 @@ The Embla: Recent Posts With Featured Images widget shows your most recent posts
 
 == Changelog ==
 
-= 1.4- July 27 2019 =
-Minor changes to the width of the column block, to work better on tablets.
-Simplified CSS to remove duplicate styles.
+= 1.7- August 16 2020 =
+Added required items to style.css
+Minor bug fix for one of the menu names.
+
+= 1.6- February 12 2020 =
+Added an option to display featured image as the header image.
+
+= 1.5- December 16 2019 =
+Fixed a problem where the icons for the menu were not loaded.
+
+= 1.4- August 10 2019 =
+Fixed a problem with the custom recent comments widget.
+Minor changes to the width of the column block, for it to work better on tablets.
+Simplified CSS to remove some duplicate styles.
 Added more spacing around the Jetpack breadcrumbs.
 Increased the font size.
 Fixed a CSS problem with page titles and with css transitions for the menu.
+Fixed a critical CSS problem with the custom color, embla blue.
 Made sure that the svg icons are only loaded when they are actually used.
 Removed google plus since this has been discontinued.
+For now, removed the custom font setting from the editor because it was not working as intended.
+
 
 = 1.3- June 8 2019 =
 Added support for wp_body_open.
@@ -173,6 +186,7 @@ Updated readme and fixed typos.
 * Based on Underscores https://underscores.me/, (C) 2012-2018 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
 * Based on Twenty Seventeen WordPress Theme, Copyright 2016 WordPress.org, [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
 * Based on Twenty Nineteen WordPress Theme, Copyright 2018 WordPress.org, [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
+* Based on Aaron WordPress Theme, Copyright 202 Carolina Nymark, [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
 * normalize.css https://necolas.github.io/normalize.css/, (C) 2012-2015 Nicolas Gallagher and Jonathan Neal, [MIT](https://opensource.org/licenses/MIT)
 * Checkbox sanitization Copyright (c) 2015, WordPress Theme Review Team, [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
   https://github.com/WPTRT/code-examples/blob/master/customizer/sanitization-callbacks.php 

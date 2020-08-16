@@ -2,7 +2,7 @@
 /**
  * Template Name: Blank
  * Template Post Type: post, page
- * Description: Use this template if you only want to show your Gutenberg blocks. This template does not show the header, footer or the footer widget area.
+ * Description: Use this template if you only want to show your editor blocks. This template does not show the header, footer or the footer widget area.
  *
  * @package Embla
  */

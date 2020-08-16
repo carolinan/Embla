@@ -77,6 +77,21 @@ if ( function_exists( 'wp_body_open' ) ) {
 </header><!-- #masthead -->
 
 <?php
-if ( has_header_video() || has_header_image() ) {
-	the_custom_header_markup();
+if ( is_home() ) {
+	$postid = get_option( 'page_for_posts' );
+} else {
+	$postid = get_the_ID();
+}
+
+$embla_featured_header = wp_get_attachment_image_src( get_post_thumbnail_id( $postid ), 'embla-featured-image-header' );
+
+if ( is_singular() && embla_get_meta( 'embla_featured_image_header' ) && $embla_featured_header ) {
+	echo '<div id="wp-custom-header" class="wp-custom-header">';
+	echo '<img src="' . esc_url( $embla_featured_header[0] ) . '" alt="' . get_bloginfo( 'name' ) . '">';
+	echo '</div>';
+} else {
+
+	if ( has_header_video() || has_header_image() ) {
+		the_custom_header_markup();
+	}
 }

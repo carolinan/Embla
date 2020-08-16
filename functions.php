@@ -37,7 +37,7 @@ if ( ! function_exists( 'embla_setup' ) ) {
 
 		register_nav_menus(
 			array(
-				'main'   => esc_html( 'Main Menu (Header)', 'embla' ),
+				'main'   => esc_html__( 'Main Menu (Header)', 'embla' ),
 				'social' => esc_html__( 'Social Menu (Footer)', 'embla' ),
 			)
 		);
@@ -516,6 +516,11 @@ if ( class_exists( 'WooCommerce' ) ) {
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
+
+/**
+ * Custom metabox for header options.
+ */
+require get_template_directory() . '/inc/metabox.php';
 
 /**
  * Customizer additions.
