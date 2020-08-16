@@ -1,6 +1,6 @@
 === Embla ===
 Contributors: poena
-Requires at least: 5.0
+Requires at least: 4.7
 Tested up to: 5.5
 Requires PHP: 5.6
 License: GNU General Public License v2 or later
